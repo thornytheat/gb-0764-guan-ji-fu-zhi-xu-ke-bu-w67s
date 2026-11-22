@@ -1,0 +1,3 @@
+<div class="folios"><article class="panel"><h3>采信目录 · {{ data.intake.segments }} 段</h3><div class="shelf"><table><thead><tr><th>流水</th><th>申请日</th><th>机构</th><th>原页段</th><th>行</th></tr></thead><tbody>
+{% for row in data.intake.orders %}<tr><td>{{ row.entry }}</td><td>{{ row.received }}</td><td>{{ row.institution }}</td><td>{{ row.pages or row.target }}</td><td>{{ row.line }}</td></tr>{% endfor %}
+</tbody></table></div></article><aside class="panel"><h3>退回材料</h3>{% for item in data.intake.exceptions %}<details><summary>{{ item.line }} 行 · {{ item.note }}</summary><small>{{ item.code }} · {{ item.raw }}</small></details>{% else %}<p>本卷材料均符合收件格式。</p>{% endfor %}</aside></div>

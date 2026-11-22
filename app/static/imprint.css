@@ -1,0 +1,12 @@
+.formula {font:700 clamp(20px,4vw,37px) var(--font-num);color:var(--accent);margin:20px 0 3px}
+.imprint {border:3px double var(--stamp);color:var(--stamp);width:max-content;padding:7px 13px;font:700 20px var(--font-doc);letter-spacing:.12em;margin:22px 0}
+.margin-notes {display:grid;grid-template-columns:auto auto;gap:7px 10px}
+.margin-notes dt {color:var(--muted)}
+.margin-notes dd {margin:0;font-family:var(--font-num);text-align:right}
+#imprint-value {display:block;font-family:var(--font-num);margin-top:10px}
+@media print {
+  :root {--ink:#000;--accent:#000;--muted:#000;--line:#777;--bg:#fff;--page:#fff;--stamp:#000}
+  header,nav,footer,button,form,#certificate {display:none !important}
+  .folio,.panel {display:block;padding:10px;box-shadow:none}
+  .shelf {max-height:none;overflow:visible}
+}

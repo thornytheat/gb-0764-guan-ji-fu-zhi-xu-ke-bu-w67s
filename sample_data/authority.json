@@ -1,0 +1,21 @@
+{
+  "journals": [
+    {"issn":"2049-3630","previous":["0412-2023"],"title":"海岬文献","pages":[3,20]},
+    {"issn":"1980-3412","previous":[],"title":"馆藏辑刊","pages":[1,12]}
+  ],
+  "institutions": [
+    {"code":"00123","aliases":["NORTH"],"name":"北城馆","groups":["NET"]},
+    {"code":"00007","aliases":["PORT"],"name":"港区馆","groups":["NET"]},
+    {"code":"34001","aliases":[],"name":"高原馆","groups":[]}
+  ],
+  "terms": [
+    {"id":"OPEN-1","issn":"2049-3630","scope":"public","subject":"*","revision":5,"from":"2026-01-01","until":"2027-01-01","pool":"OPEN"},
+    {"id":"NET-1","issn":"2049-3630","scope":"consortium","subject":"NET","revision":1,"from":"2026-01-01","until":"2027-01-01","pool":"NET"},
+    {"id":"NORTH-1","issn":"2049-3630","scope":"institution","subject":"00123","revision":1,"from":"2026-01-01","until":"2026-12-01","pool":"NORTH"},
+    {"id":"NORTH-2","issn":"2049-3630","scope":"institution","subject":"00123","revision":2,"from":"2026-11-01","until":"2027-01-01","pool":"NORTH"},
+    {"id":"PORT-A","issn":"2049-3630","scope":"institution","subject":"00007","revision":2,"from":"2026-11-01","until":"2026-12-01","pool":"PORT"},
+    {"id":"PORT-B","issn":"2049-3630","scope":"institution","subject":"00007","revision":2,"from":"2026-11-01","until":"2026-12-01","pool":"NET"},
+    {"id":"COLL-1","issn":"1980-3412","scope":"consortium","subject":"NET","revision":1,"from":"2026-01-01","until":"2027-01-01","pool":"COLL"}
+  ],
+  "pools":{"NORTH":10,"NET":8,"PORT":5,"OPEN":5,"COLL":5}
+}

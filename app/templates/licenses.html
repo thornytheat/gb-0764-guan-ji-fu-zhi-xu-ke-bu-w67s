@@ -1,0 +1,3 @@
+<div class="folios"><article class="panel"><h3>条款候选与采纳</h3><div class="shelf"><table><thead><tr><th>流水</th><th>候选条款</th><th>采纳</th><th>裁决码</th></tr></thead><tbody>
+{% for row in data.licenses.verdicts if row.action=='copy' %}<tr><td>{{ row.entry }}</td><td>{{ row.candidates|join('、') or '—' }}</td><td>{{ row.license.id if row.license else '—' }}</td><td>{{ row.ruling or '已裁决' }}</td></tr>{% endfor %}
+</tbody></table></div></article><aside class="panel"><h3>裁决脚注</h3><dl class="margin-notes"><dt>多条款命中</dt><dd>{{ data.licenses.overlaps }} 件</dd><dt>同级冲突</dt><dd>{{ data.licenses.ties }} 件</dd></dl><p><sup>1</sup> 专属条款先于联盟与公开条款。</p></aside></div>

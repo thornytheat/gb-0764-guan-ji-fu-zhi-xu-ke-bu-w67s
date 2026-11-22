@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{ sections[view] }} · 馆际复制许可簿</title>
+<link href="/static/folio.css" rel="stylesheet"><link href="/static/imprint.css" rel="stylesheet">
+<script src="/static/imprint.js" type="module"></script></head>
+<body>
+<header class="masthead"><a class="department" href="/">馆际文献传递</a>
+<form method="get" id="choose-file"><label for="sample">复本卷宗</label><select id="sample" name="sample">
+<option value="dirty" {{ 'selected' if sample=='dirty' }}>十一月混合来件</option><option value="clean" {{ 'selected' if sample=='clean' }}>授权齐全对照件</option></select><button>调阅</button></form></header>
+<div class="folio">
+  <nav aria-label="卷宗索引"><h2>卷宗索引</h2>{% for key, name in sections.items() %}<a href="{{ url_for('desk.folio',view=key,sample=sample) }}" {% if key==view %}aria-current="page"{% endif %}>{{ name }}</a>{% endfor %}</nav>
+  <main><h1>馆际复制许可簿</h1><h2>{{ sections[view] }}</h2>
+    <dl class="kpis"><div><dt>收件</dt><dd>{{ data.intake.received }}</dd></div><div><dt>采信</dt><dd>{{ data.intake.accepted }}</dd></div><div><dt>隔离</dt><dd>{{ data.intake.isolated }}</dd></div></dl>
+    {% include view ~ '.html' %}
+  </main>
+</div>
+<footer><span>授权版本 {{ edition }}</span><span id="note" role="status">{{ '十一月混合来件' if sample=='dirty' else '授权齐全对照件' }}</span></footer>
+</body></html>

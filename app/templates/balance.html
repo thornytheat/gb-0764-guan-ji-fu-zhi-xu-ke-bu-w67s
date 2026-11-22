@@ -1,0 +1,9 @@
+{% set result = data.balance %}
+<div class="folios"><article class="panel"><h3>页数勾稽</h3>
+<p class="formula">{{ result.requested }} = {{ result.licensed }} + {{ result.denied }} + {{ result.pending }}</p>
+<p>申请页 = 许可 + 拒绝 + 待证<sup><a href="#basis">1</a></sup></p>
+<div class="shelf"><table><thead><tr><th>年度额度池</th><th>限额</th><th>占用</th><th>剩余</th></tr></thead><tbody>
+{% for pool, a in result.accounts.items() %}<tr><td>{{ pool }}</td><td>{{ a.limit }}</td><td>{{ a.used }}</td><td>{{ a.available }}</td></tr>{% endfor %}
+</tbody></table></div></article><aside class="panel" id="basis"><h3>签发印版</h3><div class="imprint">{{ '勾稽相符' if result.balanced else '待复核' }}</div>
+<dl class="margin-notes"><dt>有效占用</dt><dd>{{ result.effective }} 页</dd><dt>撤销返还</dt><dd>{{ result.restored }} 页</dd></dl>
+<p><sup>1</sup> 许可页为签发时累计，撤销另外列账。</p></aside></div>

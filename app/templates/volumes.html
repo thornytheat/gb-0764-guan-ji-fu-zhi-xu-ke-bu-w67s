@@ -1,0 +1,2 @@
+<div class="folios"><article class="panel"><h3>许可批次索引</h3>{% for item in volumes %}<p><a href="{{ url_for('desk.folio',view='stamp',run=item.run_id,sample=sample) }}">{{ item.run_id[:14] }}</a> · 有效 {{ item.totals.effective }} 页</p>{% else %}<p>请提交卷宗入档。</p>{% endfor %}</article>
+<aside class="panel"><h3>登记归卷</h3><form id="deposit" data-sample="{{ sample }}"><label for="rows">自填订单 CSV</label><textarea id="rows" rows="6" placeholder="留空调取当前卷宗"></textarea><button>复算归卷</button></form></aside></div>

@@ -1,0 +1,12 @@
+name: library-rights
+services:
+  app:
+    build: .
+    ports:
+      - '18463:18463'
+    environment:
+      LICENSE_DB: var/licenses.sqlite
+    volumes:
+      - volumes:/books/var
+volumes:
+  volumes:

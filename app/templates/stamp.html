@@ -1,0 +1,4 @@
+<div class="folios"><article class="panel print-slip"><h3>复制许可签发凭证</h3>
+{% if volumes %}<form id="stamp"><label for="volume">许可卷号</label><select id="volume">{% for item in volumes %}<option value="{{ item.run_id }}" {{ 'selected' if item.run_id==active }}>{{ item.run_id[:14] }} · {{ item.totals.effective }} 页</option>{% endfor %}</select><button>落印签发</button></form>
+<output id="imprint-value"></output><p><a id="certificate" hidden>下载许可凭证</a></p>{% else %}<p>请先复算归卷。</p>{% endif %}</article>
+<aside class="panel"><h3>签发联</h3><div class="imprint" id="paper-stamp">待盖印</div><button class="print" type="button" id="print-slip">打印本页</button></aside></div>

@@ -1,0 +1,4 @@
+<div class="folios"><article class="panel"><h3>刊号对照</h3><div class="shelf"><table><thead><tr><th>流水</th><th>来件刊号</th><th>现行刊号</th><th>机构号</th><th>源行</th></tr></thead><tbody>
+{% for row in data.registry.records if row.action=='copy' %}<tr><td>{{ row.entry }}</td><td>{{ row.issn }}</td><td>{{ row.journal.issn if row.journal else '待证' }}</td><td>{{ row.org.code if row.org else '待证' }}</td><td>{{ row.line }}</td></tr>{% endfor %}
+</tbody></table></div></article><aside class="panel"><h3>待校订原件</h3><p>旧刊号映射 {{ data.registry.old_issn }} 件</p>
+{% for row in data.registry.records if row.reasons %}<p>{{ row.entry }} · 行 {{ row.line }}<br>{{ row.reasons|map(attribute='note')|join('、') }}</p>{% else %}<p>刊号与机构均已映射。</p>{% endfor %}</aside></div>
