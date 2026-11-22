@@ -36,4 +36,5 @@ def test_registry_counts(client):
 
 def test_catalog_lookup_identity():
     register=load_register()
-    assert register['issn']['0412-2023'] is register['issn']['2049-3630']
+    current=register['issn']['2049-3630'][0]['journal']
+    assert any(entry['journal'] is current for entry in register['issn']['0412-2023'])

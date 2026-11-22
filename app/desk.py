@@ -3,7 +3,7 @@ from flask import Blueprint, current_app, render_template, request
 from app.problem import DeskError
 from app.settings import EDITION
 from app.source import bundle
-from app.vault.record import index
+from app.vault.record import index, volume
 from app.workflow import steps
 
 desk = Blueprint('desk',__name__)
@@ -19,5 +19,12 @@ def folio(view='balance'):
     sample = request.args.get('sample','dirty')
     data = steps(bundle(sample),view)
     volumes = index(current_app.vault) if view in ('volumes','stamp') else []
+    active = request.args.get('run')
+    pending = []
+    if view == 'stamp' and active:
+        try:
+            pending = [row for row in volume(current_app.vault,active)['stages']['pages']['copies'] if row['pending']]
+        except DeskError:
+            pass
     return render_template('base.html', view=view, sections=SECTIONS, data=data, sample=sample,
-                           volumes=volumes, active=request.args.get('run'), edition=EDITION)
+                           volumes=volumes, active=active, pending=pending, edition=EDITION)

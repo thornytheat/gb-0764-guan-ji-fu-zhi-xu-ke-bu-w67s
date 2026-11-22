@@ -1,7 +1,7 @@
 {
   "journals": [
-    {"issn":"2049-3630","previous":["0412-2023"],"title":"海岬文献","pages":[3,20]},
-    {"issn":"1980-3412","previous":[],"title":"馆藏辑刊","pages":[1,12]}
+    {"issn":"2049-3630","previous":[{"key":"0412-2023","from":"2001-01-01","until":"2027-01-01"}],"title":"海岬文献","pages":[3,20]},
+    {"issn":"1980-3412","previous":[{"key":"0412-2023","from":"2027-01-01"}],"title":"馆藏辑刊","pages":[1,12]}
   ],
   "institutions": [
     {"code":"00123","aliases":["NORTH"],"name":"北城馆","groups":["NET"]},
